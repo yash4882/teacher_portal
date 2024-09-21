@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  port: 5432
+  username: postgres
+  password: postgres
+  host: localhost
+
+development:
+  <<: *default
+  database: teacher_portal_development
+
+test:
+  <<: *default
+  database: teacher_portal_test
