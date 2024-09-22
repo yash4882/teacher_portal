@@ -1,10 +1,10 @@
 <header>
     <div class="logo">
-        <a href="#">Teacher Portal</a>
+        <a>Teacher Portal</a>
     </div>
     <nav>
         <ul>
-            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Home", home_index_path %></li>
             <% if teacher_signed_in? %>
                 <li><%= link_to "Edit Password", edit_password_path %></li>
                 <li><%= button_to "Log out", session_path, method: :delete %></li>

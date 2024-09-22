@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-    root 'home#index'
-    # root 'sessions#new'
+    root 'sessions#new'
+    
+    get 'home/index'
     resource :registration
     resource :session
     resource :password_reset

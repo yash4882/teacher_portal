@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
     @student = Student.find_or_initialize_by(name: params[:student][:name], subject: params[:student][:subject])
     @student.marks = params[:student][:marks].to_i  # This will replace the old marks with the new marks
     if @student.save
-      redirect_to root_path, notice: 'Student saved successfully'
+      redirect_to home_index_path, notice: 'Student saved successfully'
     else
       render :new
     end
@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      redirect_to root_path, notice: 'Student updated successfully'
+      redirect_to home_index_path, notice: 'Student updated successfully'
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to root_path, notice: 'Student deleted'
+    redirect_to home_index_path, notice: 'Student deleted'
   end
 
   private

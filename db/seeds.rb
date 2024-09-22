@@ -9,6 +9,6 @@
 #   end
 
 languages = ["Hindi", "English", "Spanish", "French", "German"]
-(1..30).each do |i|
+(1..10).each do |i|
 	student = Student.create(name: "student#{i}", subject: "#{languages.sample}", marks: "#{rand(100)}")
 end

@@ -24,7 +24,7 @@
             <button class="dropbtn">&#9660;</button>
             <div id="myDropdown-<%= student.id %>" class="dropdown-content">
               <%= link_to 'Edit', edit_student_path(student), class: "dropdown-item" %>
-              <%= link_to "Destroy", student_path(student), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
+              <%= link_to "Delete", student_path(student), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
             </div>
           </div>
           <% end %>

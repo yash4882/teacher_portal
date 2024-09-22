@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
 		@teacher = Teacher.new(registration_params)
 		if @teacher.save
 			login @teacher
-			redirect_to root_path
+			redirect_to home_index_path
 		else
 			render :new, status: :unprocessable_entity
 		end
