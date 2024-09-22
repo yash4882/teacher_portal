@@ -40,117 +40,10 @@
   </div>
 
   <div class="teacher-email">
-    Login-user: <%= current_teacher.email %>
+    User: <%= current_teacher.email %>
   </div>  
 <% end %>
-
-<style>
-    .dropbtn {
-      background-color: #818181;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    /* The dropdown content (hidden by default) */
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      min-width: 100px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-      border-radius: 5px;
-      padding: 5px 0;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-      color: black;
-      padding: 8px 12px;
-      text-decoration: none;
-      display: block;
-      font-size: 14px;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-
-    /* Show the dropdown menu on button click */
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .dropdown {
-    position: relative;
-    display: inline-block;
-    }
-
-    .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    }
-
-    .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    }
-
-    .dropdown-content a:hover {
-    background-color: #ddd;
-    }
-
-    .show {
-    display: block;
-    }
-
-<%# ---------------------------------- %>
-    .pagination {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .pagination a {
-      display: inline-block;
-      padding: 8px 12px;
-      margin: 0 4px;
-      border: 1px solid #e74c3c;
-      border-radius: 4px;
-      color: black;
-      text-decoration: none;
-      background-color: white;
-      transition: all 0.3s ease;
-    }
-
-    .pagination a:hover {
-      background-color: #e74c3c;
-      color: #ffffff;
-      border-color: #0056b3;
-    }
-
-    .pagination .current {
-      background-color: #e74c3c; /* Darker blue for active */
-      color: #ffffff; /* White text */
-      border: 1px solid #004494; /* Darker border */
-      font-weight: bold;
-      padding: 8px 12px; /* Same padding for consistency */
-      border-radius: 4px; /* Keep rounded corners */
-      pointer-events: none; /* Disable clicking */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    }
-
-
-</style>
+<%= paginate @students %>
 
 <script>
     function toggleDropdown(studentId) {
@@ -172,4 +65,3 @@
     }
 </script>
 
-<%= paginate @students %>
