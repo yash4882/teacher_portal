@@ -1,47 +1,44 @@
 <table class="student-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Subject</th>
-      <th>Mark</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td>
-          <div class="student-name">
-            <div class="circle-icon"><%= student.name.first.upcase %></div>
-            <%= student.name.capitalize %>
-          </div>
-        </td>
-        <td><%= student.subject.capitalize %></td>
-        <td><%= student.marks %></td>
-        <td>
-          <%# if current_teacher %>
-          <div class="dropdown">
-            <button class="dropbtn">&#9660;</button>
-            <div id="myDropdown-<%= student.id %>" class="dropdown-content">
-              <%= link_to 'Edit', edit_student_path(student), class: "dropdown-item" %>
-              <%= link_to "Delete", student_path(student), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
-            </div>
-          </div>
-          <%# end %>
-        </td>      
-      </tr>
-    <% end %>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Mark</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @students.each do |student| %>
+        <tr>
+            <td>
+                <div class="student-name">
+                    <div class="circle-icon"><%= student.name.first.upcase %></div>
+                    <%= student.name.capitalize %>
+                </div>
+            </td>
+            <td><%= student.subject.capitalize %></td>
+            <td><%= student.marks %></td>
+            <td>
+                <div class="dropdown">
+                    <button class="dropbtn">&#9660;</button>
+                    <div id="myDropdown-<%= student.id %>" class="dropdown-content">
+                        <%= link_to 'Edit', edit_student_path(student), class: "dropdown-item" %>
+                        <%= link_to "Delete", student_path(student), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
+                    </div>
+                </div>
+            </td>      
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <% if current_teacher %>
-  <div class="add-btn-container">
-    <%= link_to 'Add New Student', new_student_path, class: "btn btn-primary" %>
-  </div>
-
-  <div class="teacher-email">
-    User: <%= current_teacher.email %>
-  </div>  
+    <div class="add-btn-container">
+        <%= link_to 'Add New Student', new_student_path, class: "btn btn-primary" %>
+    </div>
+    <div class="teacher-email">
+        User: <%= current_teacher.email %>
+    </div>
 <% end %>
 <%= paginate @students %>
 
