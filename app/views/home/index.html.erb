@@ -1,32 +1,135 @@
-<h1>Student List</h1>
-<table>
+<table class="student-table">
   <thead>
     <tr>
       <th>Name</th>
       <th>Subject</th>
-      <th>Marks</th>
-      <th>Actions</th>
+      <th>Mark</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.name %></td>
-        <td><%= student.subject %></td>
+        <td>
+          <div class="student-name">
+            <div class="circle-icon"><%= student.name.first.upcase %></div>
+            <%= student.name.capitalize %>
+          </div>
+        </td>
+        <td><%= student.subject.capitalize %></td>
         <td><%= student.marks %></td>
         <td>
-          <%= link_to 'Edit', edit_student_path(student) %>
-          <%= link_to "Destroy", student_path(student), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-        </td>
+          <% if current_teacher %>
+          <div class="dropdown">
+            <button class="dropbtn">&#9660;</button>
+            <div id="myDropdown-<%= student.id %>" class="dropdown-content">
+              <%= link_to 'Edit', edit_student_path(student), class: "dropdown-item" %>
+              <%= link_to "Destroy", student_path(student), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
+            </div>
+          </div>
+          <% end %>
+        </td>      
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <% if current_teacher %>
-  <%= link_to 'Add New Student', new_student_path, class: "btn btn-primary" %>
-  <%= current_teacher.email %>  
+  <div class="add-btn-container">
+    <%= link_to 'Add New Student', new_student_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="teacher-email">
+    Login-user: <%= current_teacher.email %>
+  </div>  
 <% end %>
+
+<style>
+    .dropbtn {
+      background-color: #818181;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* The dropdown content (hidden by default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 5px;
+      padding: 5px 0;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 8px 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Show the dropdown menu on button click */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    }
+
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+    .dropdown-content a:hover {
+    background-color: #ddd;
+    }
+
+    .show {
+    display: block;
+    }
+</style>
+
+<script>
+    function toggleDropdown(studentId) {
+        var dropdown = document.getElementById("myDropdown-" + studentId);
+        dropdown.classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropdown button')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>

@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+languages = ["Hindi", "English", "Spanish", "French", "German"]
+(1..30).each do |i|
+	student = Student.create(name: "student#{i}", subject: "#{languages.sample}", marks: "#{rand(100)}")
+end

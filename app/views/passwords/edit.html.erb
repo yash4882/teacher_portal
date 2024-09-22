@@ -1,28 +1,35 @@
-<h1>Update Password</h1>
-
-<%= form_with model: current_teacher, url: password_path do |form| %>
-	<% if form.object.errors.any? %>
-		<% form.object.errors.full_messages.each do |message| %>
-			<div><%= message %></div>
-		<% end %>
-	<% end %>
+<div class="login-body">
+	<div class="login-container">
+		<div class="login-box">
+			<div class="logo">Update Password</div>
+			<%= form_with model: current_teacher, url: password_path, class: "login-form" do |form| %>
+				<% if form.object.errors.any? %>
+					<% form.object.errors.full_messages.each do |message| %>
+						<div><%= message %></div>
+					<% end %>
+				<% end %>
 	
-	<div>
-		<%= form.label :password_challenge, "Current Password" %>
-		<%= form.password_field :password_challenge %>
-	</div>
+			<div class="form-group">
+				<%= form.label :password_challenge, "Current Password",class: "form-label" %>
+				<%= form.password_field :password_challenge, class: "form-control", placeholder: "Current password", required: true  %>
+			</div>
 
-	<div>
-		<%= form.label :password, "New Password" %>
-		<%= form.password_field :password %>
-	</div>
-	
-	<div>
-		<%= form.label :password_confirmation, "Confirm Password" %>
-		<%= form.password_field :password_confirmation %>
-	</div>
+			<div class="form-group">
+				<%= form.label :password, class: "form-label" %>
+				<%= form.password_field :password, class: "form-control", placeholder: "Enter your password", required: true %>
+			</div>
 
-	<div>
-		<%= form.submit "Update Password"%>
-	</div>
-<% end %>
+			<div class="form-group">
+				<%= form.label :password_confirmation,"Confirm Password", class: "form-label" %>
+				<%= form.password_field :password_confirmation, class: "form-control", placeholder: "Enter your Confirm password", required: true %>
+			</div>
+
+
+			<div class="form-group">
+				<%= form.submit "Sign Up", class: "login-btn btn btn-primary" %>
+			</div>
+			<% end %>
+			<%= link_to 'Back', root_path %>
+		</div>
+  	</div>
+</div>
