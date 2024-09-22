@@ -1,7 +1,7 @@
 <div class="login-body">
 	<div class="login-container">
 		<div class="login-box">
-			<div class="logo">Update Password</div>
+			<div class="login-logo">Update Password</div>
 			<%= form_with model: current_teacher, url: password_path, class: "login-form" do |form| %>
 				<% if form.object.errors.any? %>
 					<% form.object.errors.full_messages.each do |message| %>

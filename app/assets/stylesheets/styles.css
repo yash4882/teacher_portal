@@ -1,4 +1,4 @@
-/*-------------------Header CSS-------------------------*/
+/* Header CSS */
 
 * {
     margin: 0;
@@ -82,7 +82,7 @@ nav ul li form button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     margin: 0;
 }
 
@@ -99,7 +99,14 @@ nav ul li form button:hover {
 .logo {
     font-size: 30px;
     color: #e74c3c;
-    margin-bottom: 20px;
+    padding: 8px 15px;
+
+}
+.login-logo{
+    font-size: 30px;
+    color: #e74c3c;
+    padding: 8px 15px;
+    margin-bottom: 10px;
 }
 
 .form-group {
@@ -107,8 +114,9 @@ nav ul li form button:hover {
 }
 
 .form-label {
+    text-align: left;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 14px;
     font-weight: bold;
 }

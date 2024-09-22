@@ -8,15 +8,11 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
-
-    <%# <link rel="manifest" href="/manifest.json"> %>
-    <%# <link rel="icon" href="/icon.png" type="image/png"> %>
-    <%# <link rel="icon" href="/icon.svg" type="image/svg+xml"> %>
-    <%# <link rel="apple-touch-icon" href="/icon.png"> %>
+    
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'pagination', media: 'all' %>
-    <%= stylesheet_link_tag 'dropdown', media: 'all' %>
+    <%= stylesheet_link_tag 'pagination', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'dropdown', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_importmap_tags %>
 
@@ -61,3 +57,4 @@
     <%= yield %>
   </body>
 </html>
+

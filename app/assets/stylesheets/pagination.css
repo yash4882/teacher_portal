@@ -24,12 +24,12 @@
 }
 
 .pagination .current {
-    background-color: #e74c3c; /* Darker blue for active */
-    color: #ffffff; /* White text */
-    border: 1px solid #004494; /* Darker border */
+    background-color: #e74c3c; 
+    color: #ffffff;
+    border: 1px solid #004494;
     font-weight: bold;
-    padding: 4px 8px; /* Same padding for consistency */
-    border-radius: 4px; /* Keep rounded corners */
-    pointer-events: none; /* Disable clicking */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 4px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

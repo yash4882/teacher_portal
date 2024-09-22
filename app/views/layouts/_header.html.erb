@@ -9,8 +9,12 @@
                 <li><%= link_to "Edit Password", edit_password_path %></li>
                 <li><%= button_to "Log out", session_path, method: :delete %></li>
             <% else %>
-                <li><%= link_to "Sign-up", new_registration_path %></li>
-                <li><%= link_to "Log-in", new_session_path %></li>
+                <% unless controller_name == 'sessions' && action_name == 'new' %>
+                    <li><%= link_to "Log-in", new_session_path %></li>
+                <% end %>
+                <% unless controller_name == 'registrations' && action_name == 'new' %>
+                    <li><%= link_to "Sign-up", new_registration_path %></li>
+                <% end %>
             <% end %>
         </ul>
     </nav>

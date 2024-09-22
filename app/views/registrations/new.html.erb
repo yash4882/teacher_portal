@@ -1,7 +1,7 @@
 <div class="login-body">
 	<div class="login-container">
 		<div class="login-box">
-			<div class="logo">Sign-up</div>
+			<div class="login-logo">Sign-up</div>
 			<%= form_with model: @teacher, url: registration_path, class: "login-form"  do |form| %>
 				<% if form.object.errors.any? %>
 					<% form.object.errors.full_messages.each do |message| %>

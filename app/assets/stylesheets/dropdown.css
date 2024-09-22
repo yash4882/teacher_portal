@@ -7,7 +7,7 @@
       cursor: pointer;
     }
 
-    /* The dropdown content (hidden by default) */
+    /* dropdown content */
     .dropdown-content {
       display: none;
       position: absolute;
@@ -19,7 +19,7 @@
       padding: 5px 0;
     }
 
-    /* Links inside the dropdown */
+    /* Links in dropdown */
     .dropdown-content a {
       color: black;
       padding: 8px 12px;
@@ -28,7 +28,7 @@
       font-size: 14px;
     }
 
-    /* Change color of dropdown links on hover */
+    /* Change color of dropdown on hover */
     .dropdown-content a:hover {
       background-color: #f1f1f1;
     }
