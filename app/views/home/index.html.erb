@@ -1,1 +1,32 @@
-<h1>Home Page</h1>
+<h1>Student List</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Subject</th>
+      <th>Marks</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.subject %></td>
+        <td><%= student.marks %></td>
+        <td>
+          <%= link_to 'Edit', edit_student_path(student) %>
+          <%= link_to "Destroy", student_path(student), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if current_teacher %>
+  <%= link_to 'Add New Student', new_student_path, class: "btn btn-primary" %>
+  <%= current_teacher.email %>  
+<% end %>

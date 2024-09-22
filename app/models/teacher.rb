@@ -2,7 +2,7 @@ class Teacher < ApplicationRecord
 	has_secure_password
 
 	validates :name, presence: true
-	validates :email, presence: true
+	validates :email, presence: true, uniqueness: true
 	normalizes :email, with: ->(email) {email.strip.downcase}   # lambdas function
 
 	generates_token_for :password_reset, expires_in: 5.minutes do

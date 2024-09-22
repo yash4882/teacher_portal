@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_21_184418) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_22_074129) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "subject"
+    t.integer "marks"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teachers", force: :cascade do |t|
     t.string "name"
